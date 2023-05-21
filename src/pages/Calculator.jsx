@@ -15,7 +15,7 @@ export default function Calculator() {
         <CountryForm/>
       </div>
       <div className='bg-white'>
-        HVBVNV
+        
       
         
       </div>
