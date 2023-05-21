@@ -15,12 +15,8 @@ export default function Calculator() {
         <CountryForm/>
       </div>
       <div className='bg-white'>
-<<<<<<< HEAD
+        HVBVNV
       
-=======
-        {/* <nav>,dfx</nav> */}
-        test comitttttt
->>>>>>> 3b4935771c832172837e2af280a8f5ac111001f4
         
       </div>
       
