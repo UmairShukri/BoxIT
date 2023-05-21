@@ -15,7 +15,7 @@ export default function Calculator() {
         <CountryForm/>
       </div>
       <div className='bg-white'>
-        <nav>,dfx</nav>
+        {/* <nav>,dfx</nav> */}
 
         
       </div>
