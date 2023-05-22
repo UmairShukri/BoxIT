@@ -8,7 +8,7 @@ import BackgroundSlider from './assets/BackgroundSlider'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
 const router = createBrowserRouter([
-  { path: "/", element:<Home/> },
+  { path: "/", element:<Calculator/> },
   { path: "/about", element:<About/> },
   { path: "/contact", element:<Contact/> },
 ])
