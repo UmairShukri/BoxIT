@@ -2,7 +2,7 @@
 import './App.css'
 import Calculator from './pages/Calculator'
 import Home from './pages/Home'
-
+import BackgroundSlider from './assets/BackgroundSlider'
 function App() {
 
   return (
