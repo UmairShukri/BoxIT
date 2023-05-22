@@ -7,9 +7,7 @@ import Navbar from '../assets/Navbar';
 const Calculator = () => {
   return (
     <div className="flex flex-col">
-     
-
-      <div className="boxit relative flex items-center justify-center m-8 ">
+      <div className="boxit relative flex items-center justify-center m-8">
         <div className="absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
@@ -22,26 +20,34 @@ const Calculator = () => {
           </p>
         </div>
       </div>
-      <div   className=' justify-center m-8  text-center '>
-        <h2 className="">  Why BOXit</h2> 
-                <p2 className="">Competitive pricing options and transparent fee structure. <br></br>
-Simplify your shipping process with BOXit's user-friendly platform and seamless.<br></br>
-Experience top-notch customer service with BOXit, ensuring prompt assistance 
-and  efficient issue resolution.<br></br>
-“Not only did we reduce our transit time by 51% by utilizing Sifted’s distribution center modeling, but using their software, we reduced our parcel contract spend by 21%.”
-</p2>
+
+      <div className="justify-center m-8 text-center">
+        <h2 className="">Why BOXit</h2>
+        <p2 className="">
+          Competitive pricing options and transparent fee structure. <br />
+          Simplify your shipping process with BOXit's user-friendly platform and seamless. <br />
+          Experience top-notch customer service with BOXit, ensuring prompt assistance and efficient issue resolution. <br />
+          “Not only did we reduce our transit time by 51% by utilizing Sifted’s distribution center modeling, but using their software, we reduced our parcel contract spend by 21%.”
+        </p2>
       </div>
 
-      <div className="flex items-center m-8 text-center ">
-  <div className=" w-80 p-4  bg-cover bg-center w-683 h-819 left-305 top-1261 bg-gray-200 rounded-lg">
-    <h1 className=" text-center text-xl font-bold ">GET A QUOTE</h1>
-    <CountryForm />
-  </div>
-</div>
-
+      <div className="flex flex-col items-center justify-center p-8 space-y-8 sm:flex-row sm:space-x-20 sm:space-y-0">
+        <div className="w-full sm:w-96 pl-2 bg-cover bg-center w-683 h-819 bg-gray-200 rounded-[32px]">
+          <h1 className="text-2xl font-bold text-center mb-4 pt-8">GET A QUOTE</h1>
+          <CountryForm />
+        </div>
+        <div className="flex flex-col items-center">
+          <h3 className="text-xl ">We will help you to shop for you around the world.</h3>
+          <button type="button" className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold">
+            Shopping Request
+          </button>
+          <button type="button" className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold">
+            Portal Login
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Calculator;
-
