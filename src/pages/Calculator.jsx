@@ -9,7 +9,7 @@ const Calculator = () => {
     <div className="flex flex-col">
      
 
-      <div className="boxit relative flex items-center justify-center mx-40 max-w-[calc(100%-400px)]">
+      <div className="boxit relative flex items-center justify-center ">
         <div className="absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
@@ -22,15 +22,19 @@ const Calculator = () => {
           </p>
         </div>
       </div>
+      <div   className=' '>
+        <h2 className="">  Why BOXit</h2> 
+                <p2>Competitive pricing options and transparent fee structure.
+Simplify your shipping process with BOXit's user-friendly platform and seamless.
+Experience top-notch customer service with BOXit, ensuring prompt assistance 
+and  efficient issue resolution.
+“Not only did we reduce our transit time by 51% by utilizing Sifted’s distribution center modeling, but using their software, we reduced our parcel contract spend by 21%.”
+</p2>
+      </div>
 
       <div
-        className="flex items-start justify-center w-80 p-4 border-2 border-gray-500 bg-white bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          opacity: '0.9',
-        }}
-      >
-        <p className="font-extrabold">GET A QUOTE</p>
+        className="flex items-start justify-center w-80 p-4 border-2 border-gray-500 bg-white bg-cover bg-center">
+                <p className="font-extrabold">GET A QUOTE</p>
         <CountryForm />
       </div>
     </div>
