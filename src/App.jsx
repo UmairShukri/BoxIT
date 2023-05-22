@@ -2,16 +2,31 @@
 import './App.css'
 import Calculator from './pages/Calculator'
 import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
 import BackgroundSlider from './assets/BackgroundSlider'
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
+
+const router = createBrowserRouter([
+  { path: "/", element:<Home/> },
+  { path: "/about", element:<About/> },
+  { path: "/contact", element:<Contact/> },
+])
+
+
+
 function App() {
 
-  return (
-    <div className="App " >
-      <Calculator/>
+  return <RouterProvider router ={router}/>;
+
+
+
+    // <div className="App " >
+    //   <Calculator/>
       
      
-    </div>
-  )
+    // </div>
+
 }
 
 export default App
