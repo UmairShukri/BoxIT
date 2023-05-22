@@ -9,7 +9,7 @@ const Calculator = () => {
     <div className="flex flex-col">
      
 
-      <div className="boxit relative flex items-center justify-center ">
+      <div className="boxit relative flex items-center justify-center m-8 ">
         <div className="absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
@@ -22,7 +22,7 @@ const Calculator = () => {
           </p>
         </div>
       </div>
-      <div   className=' '>
+      <div   className=' justify-center m-8  '>
         <h2 className="">  Why BOXit</h2> 
                 <p2>Competitive pricing options and transparent fee structure.
 Simplify your shipping process with BOXit's user-friendly platform and seamless.
@@ -32,11 +32,13 @@ and  efficient issue resolution.
 </p2>
       </div>
 
-      <div
-        className="flex items-start justify-center w-80 p-4 border-2 border-gray-500 bg-white bg-cover bg-center">
-                <p className="font-extrabold">GET A QUOTE</p>
-        <CountryForm />
-      </div>
+      <div className="flex items-center  m-8">
+  <div className="w-80 p-4 border-2 border-gray-500 bg-white bg-cover bg-center w-683 h-819 left-305 top-1261 bg-gray-200 rounded-lg">
+    <h1 className="text-xl font-bold">GET A QUOTE</h1>
+    <CountryForm />
+  </div>
+</div>
+
     </div>
   );
 };
