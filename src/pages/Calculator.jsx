@@ -27,8 +27,6 @@ export default function Calculator() {
 
         All relationships begins with trust.
         
-      
-        
       </div>
 
     </div>
