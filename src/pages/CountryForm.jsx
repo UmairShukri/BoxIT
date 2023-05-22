@@ -37,17 +37,17 @@ function CountryForm() {
   };
 
   return (
-    <div className="p-4 flex items-center">
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="p-4 flex items-center justify-center space-y-4 ">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="originCountry" className="block text-gray-700">
+          <label htmlFor="originCountry" className="block text-gray-700  font-bold text-left">
             Origin Country:
           </label>
           <select
             id="originCountry"
             value={originCountry}
             onChange={handleOriginCountryChange}
-            className="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            className="px-8 w-30px bg-gray-600 text-white  block w-full border-gray-400 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
             <option value="india">India</option>
@@ -56,14 +56,14 @@ function CountryForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="destinationCountry" className="block text-gray-700">
+          <label htmlFor="destinationCountry" className="block text-gray-700 font-bold text-left ">
             Destination Country:
           </label>
           <select
             id="destinationCountry"
             value={destinationCountry}
             onChange={handleDestinationCountryChange}
-            className="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            className="px-8 w-30px bg-gray-600 text-white  block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
             <option value="india">India</option>
@@ -72,21 +72,21 @@ function CountryForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="weight" className="block text-gray-700">
+          <label htmlFor="weight" className="block text-gray-700 font-bold text-left">
             Weight:
           </label>
           <input
-            type="text"
+            type="int"
             id="weight"
             value={weight}
             onChange={handleWeightChange}
-            className="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            className="bg-gray-600 text-white block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           />
         </div>
         <div>
-          <label className="block text-gray-700">Shipping Methods:</label>
+          <label className="block text-gray-700 text-left font-bold">Shipping Methods:</label>
           <div>
-            <label htmlFor="air" className="inline-flex items-center mr-2">
+            <label htmlFor="air" className="inline-flex items-center mr-2 font-bold text-left">
               <input
                 type="checkbox"
                 id="air"
@@ -96,7 +96,7 @@ function CountryForm() {
               />
               <span className="ml-2">Air</span>
             </label>
-            <label htmlFor="sea" className="inline-flex items-center mr-2">
+            <label htmlFor="sea" className="inline-flex items-center mr-2 font-bold">
               <input
                 type="checkbox"
                 id="sea"
@@ -106,7 +106,7 @@ function CountryForm() {
               />
               <span className="ml-2">Sea</span>
             </label>
-            <label htmlFor="express" className="inline-flex items-center mr-2">
+            <label htmlFor="express" className="inline-flex items-center mr-2 font-bold">
               <input
                 type="checkbox"
                 id="express"
@@ -118,7 +118,7 @@ function CountryForm() {
             </label>
           </div>
         </div>
-        <button type="submit" className="bg-lime-300 text-white px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg">
+        <button type="submit" className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold">
           Calculate
         </button>
       </form>

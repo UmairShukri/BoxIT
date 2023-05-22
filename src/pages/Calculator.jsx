@@ -22,19 +22,19 @@ const Calculator = () => {
           </p>
         </div>
       </div>
-      <div   className=' justify-center m-8  '>
+      <div   className=' justify-center m-8  text-center '>
         <h2 className="">  Why BOXit</h2> 
-                <p2>Competitive pricing options and transparent fee structure.
-Simplify your shipping process with BOXit's user-friendly platform and seamless.
+                <p2 className="">Competitive pricing options and transparent fee structure. <br></br>
+Simplify your shipping process with BOXit's user-friendly platform and seamless.<br></br>
 Experience top-notch customer service with BOXit, ensuring prompt assistance 
-and  efficient issue resolution.
+and  efficient issue resolution.<br></br>
 “Not only did we reduce our transit time by 51% by utilizing Sifted’s distribution center modeling, but using their software, we reduced our parcel contract spend by 21%.”
 </p2>
       </div>
 
-      <div className="flex items-center  m-8">
-  <div className="w-80 p-4 border-2 border-gray-500 bg-white bg-cover bg-center w-683 h-819 left-305 top-1261 bg-gray-200 rounded-lg">
-    <h1 className="text-xl font-bold">GET A QUOTE</h1>
+      <div className="flex items-center m-8 text-center ">
+  <div className=" w-80 p-4  bg-cover bg-center w-683 h-819 left-305 top-1261 bg-gray-200 rounded-lg">
+    <h1 className=" text-center text-xl font-bold ">GET A QUOTE</h1>
     <CountryForm />
   </div>
 </div>
