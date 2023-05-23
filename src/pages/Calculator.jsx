@@ -10,7 +10,7 @@ const Calculator = () => {
       <div className="relative">
         <Navbar />
       </div>
-      <div className="boxit relative flex items-center justify-center m-8">
+      <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-8">
         <div className="absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
