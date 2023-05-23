@@ -17,13 +17,13 @@ const BackgroundSlider = () => {
   }, []);
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full ">
       {slides.map((slide, index) => (
         <img
           key={index}
           src={slide}
           alt={`Slide ${index + 1}`}
-          className={`absolute inset-0 h-full w-full opacity-0 transition-opacity ${
+          className={`rounded-[52px] absolute inset-0 h-full w-full opacity-0 transition-opacity ${
             index === currentSlide ? 'opacity-100' : ''
           }`}
         />
