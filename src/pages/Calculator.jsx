@@ -3,6 +3,7 @@ import CountryForm from './Countryform';
 import bgImage from '../images/bg.jpg';
 import BackgroundSlider from '../assets/BackgroundSlider';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
 
 const Calculator = () => {
   return (
@@ -55,6 +56,7 @@ const Calculator = () => {
           </button>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
