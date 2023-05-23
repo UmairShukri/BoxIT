@@ -23,7 +23,7 @@ const BackgroundSlider = () => {
           key={index}
           src={slide}
           alt={`Slide ${index + 1}`}
-          className={`rounded-[52px] absolute inset-0 h-full w-full opacity-0 transition-opacity ${
+          className={`rounded-[24px] absolute inset-0 h-full w-full opacity-0 transition-opacity ${
             index === currentSlide ? 'opacity-100' : ''
           }`}
         />
