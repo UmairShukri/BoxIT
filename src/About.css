@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.5;
+
+}
+body{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	min-height:100vh;
+	background-size:cover;
+	background-position:center;
+}
+
+
+
+/**************  aligning the boxes div  **************/
+
+.box-1,
+.box-2,
+.box-3,
+.box-4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 50px;
+}
+
+.box-1{
+    margin-top: 130px;
+	padding-top: 50px;
+}
+
+.box-1 h1,.box-3 h1{
+	width: 100%;
+    margin-left: 300px;
+	font-size: 50px;
+	
+}
+
+.box-1 p,.box-3 p{
+	margin-top: 60px;
+	margin-left: -420px;
+	font-size: large;
+	margin-top: 80px;
+   
+}
+.box-3 p{
+	margin-top: 160px;
+	margin-left: -580px;
+}
+
+.box-1 img,.box-3 img{
+	
+    margin-left: 200px;
+	width: 450px;
+	margin-right: 350px;
+}
+
+
+.box-2 h1,.box-4 h1{
+	width: 100%;
+    margin-left: -1000px;
+	font-size: 50px;
+	order: 3;
+}
+.box-2 p,.box-4 p{
+	margin-top: 60px;
+	margin-left: 300px;
+	font-size: large;
+	margin-top: 80px;
+	order: 2;
+}
+.box-2 img,.box-4 img{
+	
+	order: 1;
+	width: 450px;
+	margin-left: 170px;
+    
+}
+
+.box-2 img{
+	margin-top: -120px;
+}
+.box-3 img{
+	margin-top: -120px;
+}
+
+.box-2 p{
+	margin-right: 450px;
+}
+.box-4 p{
+	margin-top: 130px;
+	width: 80%;
+	margin-left: 325px;
+}
+.box-2 h1{
+	margin-right: 470px;
+	padding-bottom: 20px;
+
+}
+.box-4 h1{
+	
+	margin-left: -750px;
+}
+.box-4{
+	padding-top: 20px;
+}
+
