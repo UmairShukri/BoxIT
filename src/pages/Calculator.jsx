@@ -1,14 +1,14 @@
 import React from 'react';
-import CountryForm from './CountryForm';
+import CountryForm from './Countryform';
 import bgImage from '../images/bg.jpg';
 import BackgroundSlider from '../assets/BackgroundSlider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
-
+import icon from "../images/icon.png"
 const Calculator = () => {
   return (
-    <div className="relative flex flex-col">
-      <div className="relative">
+    <div className="relative flex flex-col ">
+      <div className="relative text-lime-300 ">
         <Navbar />
       </div>
       <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-8">
@@ -54,9 +54,11 @@ const Calculator = () => {
           >
             Portal Login
           </button>
+          
         </div>
       </div>
-      <Footer />
+      <div > <Footer/> </div>
+      
     </div>
   );
 };
