@@ -5,6 +5,7 @@ import BackgroundSlider from '../assets/BackgroundSlider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 import icon from "../images/icon.png"
+
 const Calculator = () => {
   return (
     <div className="relative flex flex-col ">
@@ -56,7 +57,9 @@ const Calculator = () => {
           </button>
           
         </div>
+        <div> </div>
       </div>
+    
       <div > <Footer/> </div>
       
     </div>
