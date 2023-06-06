@@ -1,0 +1,21 @@
+[
+    {
+        "weight" : "0-10kg",
+        "Price"  : 23
+    },
+    {
+        "weight" : "10-20kg",
+        "Price"  : 23
+    }
+    ,
+    {
+        "weight" : "40-100kg",
+        "Price"  : 23
+    },
+    {
+        "weight" : "100-1000kg",
+        "Price"  : 23
+    }
+    
+
+]
