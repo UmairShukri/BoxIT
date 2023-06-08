@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import data from './Amount.json';
 import ReadOnlyRow from './component/ReadOnlyRow';
 import EditableRow from './component/EditableRow';
-
+import './App.css'
 const ShippingPage = () => {
   const [price, setPrice] = useState(data);
   const [editFormData, setEditFormData] = useState({
@@ -30,10 +30,31 @@ const ShippingPage = () => {
     setEditFormData(newFormData);
   };
 
+
+  
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+
+    const editedPrice= {
+      weight: editFormData.weight,
+      Amount: editFormData.Amount,
+   
+    };
+
+ const newPrice = [...price];
+
+    const index = price.findIndex((price) => price.weight === editWeight);
+
+    newPrice[index] = editedPrice;
+
+    setPrice(newPrice);
+    setEditWeight(null);
+  };
+
   return (
     <div>
       <div>
-        <form className='flex flex-col border-4 items-center justify-center'>
+        <form   className='flex flex-col border-4 items-center justify-center'>
           <h1 className='text-white'>ADMIN PANEL</h1>
           <div className='m-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
             <label className='block' htmlFor='originCountry'>
@@ -48,12 +69,12 @@ const ShippingPage = () => {
         </form>
       </div>
 
-      <div className='flex justify-center mt-8'>
-        <form>
-          <table className='border-2 p-4 table-fixed'>
+      <div className='app-container flex justify-center mt-8'>
+        <form onSubmit={handleEditFormSubmit}>
+          <table className=''>
             <thead>
               <tr>
-                <th className='pr-4'>weight</th>
+                <th className=''>weight</th>
                 <th>Amount</th>
                 <th>Actions</th>
               </tr>

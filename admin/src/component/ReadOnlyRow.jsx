@@ -3,7 +3,7 @@ import data from '../Amount.json';
 
 const ReadOnlyRow = ({ price, handleEditClick }) => {
   return (
-    <tr className='flex ml-4 pl-4'>
+    <tr className=''>
       <td className='pr-'>{price.weight}</td>
       <td className='pr-'>{price.Price}</td>
       <td className='border-4'>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditableRow = ({ editFormData, handleEditFormChange }) => {
+const EditableRow = ({ editFormData, handleEditFormChange}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Logic to update the price state with the updated values
@@ -30,7 +30,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
         />
       </td>
       <td>
-        <button type='submit' onClick={handleSubmit}>
+        <button type='submit' >
           Save
         </button>
       </td>
