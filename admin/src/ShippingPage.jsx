@@ -74,7 +74,7 @@ const ShippingPage = () => {
           <table className=''>
             <thead>
               <tr>
-                <th className=''>weight</th>
+                <th className=''>Weight</th>
                 <th>Amount</th>
                 <th>Actions</th>
               </tr>
