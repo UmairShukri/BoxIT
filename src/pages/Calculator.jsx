@@ -5,6 +5,7 @@ import BackgroundSlider from '../assets/BackgroundSlider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 import icon from "../images/icon.png"
+import Flags from "../components/FlagContainer"
 
 const Calculator = () => {
   return (
@@ -57,8 +58,9 @@ const Calculator = () => {
           </button>
           
         </div>
-        <div> </div>
+        
       </div>
+      <div> <Flags/></div>
     
       <div > <Footer/> </div>
       

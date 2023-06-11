@@ -9,7 +9,7 @@ const Navbar = () => {
         
       </div>
 
-      <ul className="flex space-x-4">
+      <ul className="flex space-x-7 mr-20">
         <li>
           <Link to="/about" className="text-lime-green-500 hover:text-lime-green-300">
             About
