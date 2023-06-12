@@ -1,15 +1,19 @@
-import React from 'react'
-import India from "../images/india.png"
-import Japan from "../images/Japan.png"
+import React from 'react';
+import India from "../images/india.png";
+import Japan from "../images/Japan.png";
+import Male from "../images/maldives.png";
+import Dubai from "../images/dubai.png";
 
 export default function FlagContainer() {
   return (
-    <div className='border-4  bg-grey flex justify-center   h-full  flex-col'>
-       <div> <h1>Contries we Ship</h1></div>
-       <div className='flex flex-row space-x-4'>
-      <img src={India} alt='india' />
-      <img src={Japan} alt='japan' />
+    <div className='border-4 bg-gray-200 rounded-2xl flex flex-col p-6 m-5'>
+      <h1 className='text-center'>Countries we Ship</h1>
+      <div className='flex flex-wrap justify-center items-center space-x-4 space-y-4'>
+        <img className='max-w-xs' src={India} alt='india' />
+        <img className='max-w-xs' src={Japan} alt='japan' />
+        <img className='max-w-xs' src={Male} alt='maldives'/>
+        <img className='max-w-xs' src={Dubai} alt='dubai' />
       </div>
     </div>
-  )
+  );
 }

@@ -1,17 +1,17 @@
 import React from 'react';
 import CountryForm from './Countryform';
 import bgImage from '../images/bg.jpg';
-import BackgroundSlider from '../assets/BackgroundSlider';
+import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
-import icon from "../images/icon.png"
 import Flags from "../components/FlagContainer"
 
 const Calculator = () => {
   return (
-    <div className="relative flex flex-col ">
-      <div className="relative text-lime-300 ">
-        <Navbar />
+    <div className=" relative flex flex-col ">
+      
+      <div className="relative text-lime-300 w-full ">
+      <Navbar />
       </div>
       <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-8">
         <div className="absolute inset-0 z-0">
@@ -28,8 +28,9 @@ const Calculator = () => {
       </div>
 
       <div className="justify-center m-8 text-center">
-        <h2 className="">Why BOXit</h2>
-        <p2 className="">
+        <h2 className="text-2xl font-bold">Why BOXit</h2>
+        
+        <p2 className="text-l">
           Competitive pricing options and transparent fee structure. <br />
           Simplify your shipping process with BOXit's user-friendly platform and seamless. <br />
           Experience top-notch customer service with BOXit, ensuring prompt assistance and efficient issue resolution. <br />
@@ -60,7 +61,7 @@ const Calculator = () => {
         </div>
         
       </div>
-      <div> <Flags/></div>
+      <div className='flex justify-center '> <Flags/></div>
     
       <div > <Footer/> </div>
       

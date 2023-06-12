@@ -1,31 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Icon from '../images/boxitLogo.png';
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between bg-black py-4 px-7">
-      <div className="flex items-center text-lime-green-500">
-        <img src="../images/icon.png" alt="" className="h-8 mr-1" />
-        
+    <nav className="flex justify-between bg-black py-4 px-7 w-full">
+      <div className="flex items-center  md:w-auto md:mr-auto mt-2">
+        <img src={Icon} alt="logo" className="h-8 mr-1 ml-4 md:h-8 md:mr-0 md:ml-10" />
       </div>
 
-      <ul className="flex space-x-7 mr-20">
+      <ul className="flex flex-wrap space-x-4 md:space-x-7 md:mr-4 mt-3">
         <li>
-          <Link to="/about" className="text-lime-green-500 hover:text-lime-green-300">
+          <Link to="/about" className="text-lime-green-500 hover:text-gray-300">
             About
           </Link>
         </li>
         <li>
-          <Link to="/contact" className="text-lime-green-500 hover:text-lime-green-300">
+          <Link to="/contact" className="text-lime-green-500 hover:text-gray-300">
             Contact
           </Link>
         </li>
         <li>
-          <button  className=" rounded-full bg-lime-300 text-black -500 py-2 px-4 rounded hover:bg-lime-green-400">
-
-           
-                    Login
-            </button>
+          <button className="rounded-full bg-lime-300 text-black py-2 px-4 rounded hover:bg-gray-400">
+            Login
+          </button>
         </li>
       </ul>
     </nav>

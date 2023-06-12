@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
-import BackgroundSlider from './assets/BackgroundSlider'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import Navbar from './components/Navbar';
 
