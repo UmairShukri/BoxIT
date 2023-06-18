@@ -5,6 +5,7 @@ import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 import Flags from "../components/FlagContainer"
+import '../components/Price.css'
 
 const Calculator = () => {
   return (
@@ -39,8 +40,10 @@ const Calculator = () => {
       </div>
 
       <div className="tm-9 flex flex-col items-center justify-center p-8 space-y-8 sm:flex-row sm:space-x-20 sm:space-y-0">
-        <div className="w-full sm:w-96 pl-2 bg-cover bg-center w-683 h-819 bg-gray-200 rounded-[32px]">
+    
+        <div className=" ">
           <h1 className="text-2xl font-bold text-center mb-4 pt-8">GET A QUOTE</h1>
+         
           <CountryForm />
         </div>
         <div className="flex flex-col items-center">
