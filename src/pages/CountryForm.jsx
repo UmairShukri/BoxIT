@@ -1,22 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
   const [destinationCountry, setDestinationCountry] = useState('');
   const [weight, setWeight] = useState('');
-  const [shippingMethods, setShippingMethods] = useState([]);
-  const [showMyModal,setShowMyModal ] = useState(false)
-  const handleOnClose = () => setShowMyModal(false)
+  const [selectedShippingMethod, setSelectedShippingMethod] = useState('');
+  const [showMyModal, setShowMyModal] = useState(false);
+  const [countryList, setCountryList] = useState([]);
+
+  useEffect(() => {
+    readGoogleSheet();
+  }, []);
+
+  const readGoogleSheet = () => {
+    fetch('https://sheetdb.io/api/v1/9ecithn64uejo')
+      .then((response) => response.json())
+      .then((data) => {
+        const countries = data.map((item) => item.country);
+        setCountryList(countries);
+      })
+      .catch((error) => {
+        console.log('Error reading Google Sheet:', error);
+      });
+  };
+
+  const handleOnClose = () => setShowMyModal(false);
 
   const handleOriginCountryChange = (e) => {
     const selectedOriginCountry = e.target.value;
     setOriginCountry(selectedOriginCountry);
 
-    if (selectedOriginCountry === 'srilanka') {
-      setDestinationCountry(''); // Reset destination country if origin is Sri Lanka
+    if (selectedOriginCountry === 'Sri Lanka') {
+      setDestinationCountry('');
     } else {
-      setDestinationCountry('srilanka'); // Set destination to Sri Lanka if origin is not Sri Lanka
+      setDestinationCountry('Sri Lanka');
     }
   };
 
@@ -29,21 +47,15 @@ function CountryForm() {
   };
 
   const handleShippingMethodChange = (e) => {
-    const method = e.target.value;
-    if (shippingMethods.includes(method)) {
-      setShippingMethods(shippingMethods.filter((m) => m !== method));
-    } else {
-      setShippingMethods([...shippingMethods, method]);
-    }
+    setSelectedShippingMethod(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform further actions here, such as validation or submitting the data to a server
     console.log('Origin Country:', originCountry);
     console.log('Destination Country:', destinationCountry);
     console.log('Weight:', weight);
-    console.log('Shipping Methods:', shippingMethods);
+    console.log('Shipping Method:', selectedShippingMethod);
   };
 
   return (
@@ -60,9 +72,11 @@ function CountryForm() {
             className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-400 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
-            <option value="india">India</option>
-            <option value="srilanka">Sri Lanka</option>
-            <option value="malaysia">Malaysia</option>
+            {countryList.map((country) => (
+              <option key={country} value={country}>
+                {country}
+              </option>
+            ))}
           </select>
         </div>
         <div>
@@ -76,15 +90,14 @@ function CountryForm() {
             className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
-            {originCountry === 'srilanka' ? (
-              <>
-                <option value="india">India</option>
-                <option value="maldives">Maldives</option>
-                <option value="dubai">Dubai</option>
-                <option value="china">China</option>
-              </>
+            {originCountry === 'Sri Lanka' ? (
+              countryList.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))
             ) : (
-              <option value="srilanka">Sri Lanka</option>
+              <option value="Sri Lanka">Sri Lanka</option>
             )}
           </select>
         </div>
@@ -93,7 +106,7 @@ function CountryForm() {
             Weight:
           </label>
           <input
-            type="int"
+            type="number"
             id="weight"
             value={weight}
             onChange={handleWeightChange}
@@ -101,24 +114,24 @@ function CountryForm() {
           />
         </div>
         <div>
-          <label className="block text-gray-700 text-left font-bold">Shipping Methods:</label>
+          <label className="block text-gray-700 text-left font-bold">Shipping Method:</label>
           <div>
             <label htmlFor="air" className="inline-flex items-center mr-2 font-bold text-left">
               <input
-                type="checkbox"
+                type="radio"
                 id="air"
                 value="air"
-                checked={shippingMethods.includes('air')}
+                checked={selectedShippingMethod === 'air'}
                 onChange={handleShippingMethodChange}
               />
               <span className="ml-2">Air</span>
             </label>
             <label htmlFor="sea" className="inline-flex items-center mr-2 font-bold">
               <input
-                type="checkbox"
+                type="radio"
                 id="sea"
                 value="sea"
-                checked={shippingMethods.includes('sea')}
+                checked={selectedShippingMethod === 'sea'}
                 onChange={handleShippingMethodChange}
               />
               <span className="ml-2">Sea</span>
@@ -126,24 +139,25 @@ function CountryForm() {
 
             <label htmlFor="express" className="inline-flex items-center mr-2 font-bold">
               <input
-                type="checkbox"
+                type="radio"
                 id="express"
                 value="express"
-                checked={shippingMethods.includes('express')}
+                checked={selectedShippingMethod === 'express'}
                 onChange={handleShippingMethodChange}
               />
               <span className="ml-2">Express</span>
             </label>
           </div>
         </div>
-        <button onClick={()=> setShowMyModal(true)}
+        <button
+          onClick={() => setShowMyModal(true)}
           type="submit"
-          className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold"
+          className="bg-lime-300 text-black m-8 px-4 py-2  hover:bg-blue-600 rounded-lg font-bold"
         >
           Calculate
         </button>
         <div>
-          <Price onClose={handleOnClose} visible={showMyModal}/>
+          <Price onClose={handleOnClose} visible={showMyModal} />
         </div>
       </form>
     </div>
