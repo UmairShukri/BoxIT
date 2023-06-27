@@ -152,7 +152,7 @@ function CountryForm() {
         <button
           onClick={() => setShowMyModal(true)}
           type="submit"
-          className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold"
+          className="bg-lime-300 text-black m-8 px-4 py-2  hover:bg-blue-600 rounded-lg font-bold"
         >
           Calculate
         </button>
