@@ -16,7 +16,7 @@ const Footer = () => {
           <div>Calculator</div>
 
         </div>
-        <div className="flex justify-end">© 2023. All rights reserved.</div>
+        <div className="flex ">© 2023. All rights reserved.</div>
         
       </div>
     </footer>

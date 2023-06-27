@@ -1,14 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
-
-const countryList = [
-  'India',
-  'Sri Lanka',
-  'Malaysia',
-  'Maldives',
-  'Dubai',
-  'China',
-]; // List of countries
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
@@ -16,6 +7,23 @@ function CountryForm() {
   const [weight, setWeight] = useState('');
   const [selectedShippingMethod, setSelectedShippingMethod] = useState('');
   const [showMyModal, setShowMyModal] = useState(false);
+  const [countryList, setCountryList] = useState([]);
+
+  useEffect(() => {
+    readGoogleSheet();
+  }, []);
+
+  const readGoogleSheet = () => {
+    fetch('https://sheetdb.io/api/v1/9ecithn64uejo')
+      .then((response) => response.json())
+      .then((data) => {
+        const countries = data.map((item) => item.country);
+        setCountryList(countries);
+      })
+      .catch((error) => {
+        console.log('Error reading Google Sheet:', error);
+      });
+  };
 
   const handleOnClose = () => setShowMyModal(false);
 
@@ -38,7 +46,6 @@ function CountryForm() {
     setWeight(e.target.value);
   };
 
-  
   const handleShippingMethodChange = (e) => {
     setSelectedShippingMethod(e.target.value);
   };
@@ -48,7 +55,7 @@ function CountryForm() {
     console.log('Origin Country:', originCountry);
     console.log('Destination Country:', destinationCountry);
     console.log('Weight:', weight);
-    console.log('Shipping Methods:', shippingMethods);
+    console.log('Shipping Method:', selectedShippingMethod);
   };
 
   return (
