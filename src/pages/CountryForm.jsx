@@ -81,7 +81,7 @@ function CountryForm() {
         </div>
         <div>
           <label htmlFor="destinationCountry" className="block text-gray-700 font-bold text-left">
-            Destination Country:
+            Destination Country: 
           </label>
           <select
             id="destinationCountry"
