@@ -72,11 +72,13 @@ function CountryForm() {
             className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-400 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
-            {countryList.map((country) => (
-              <option key={country} value={country}>
-                {country}
-              </option>
-            ))}
+            
+              <option value="Sri Lanka"> Sri Lanka</option>
+              <option value="India"> India</option>
+              <option value="China"> china</option>
+              <option value="Dubai"> Dubai</option>
+              <option value="Maldives"> Maldives</option>
+            
           </select>
         </div>
         <div>
