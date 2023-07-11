@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
-import { MongoClient } from 'mongodb';
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
@@ -11,24 +10,19 @@ function CountryForm() {
   const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
-    readMongoDBCollection();
+    readGoogleSheet();
   }, []);
 
-  const readMongoDBCollection = async () => {
-    const uri = 'mongodb+srv://shobi:MERNapp2023@mernapp.clnurpr.mongodb.net';
-    const client = new MongoClient(uri);
-    try {
-      await client.connect();
-      const database = client.db('googlesheetsdb');
-      const collection = database.collection('from_srilanka_records');
-      const result = await collection.find().toArray();
-      const countries = result.map((item) => item.country);
-      setCountryList(countries);
-    } catch (error) {
-      console.log('Error reading MongoDB collection:', error);
-    } finally {
-      await client.close();
-    }
+  const readGoogleSheet = () => {
+    fetch('https://sheetdb.io/api/v1/wz3shc7d358q9')
+      .then((response) => response.json())
+      .then((data) => {
+        const countries = data.map((item) => item.country);
+        setCountryList(countries);
+      })
+      .catch((error) => {
+        console.log('Error reading Google Sheet:', error);
+      });
   };
 
   const handleOnClose = () => setShowMyModal(false);
@@ -78,16 +72,18 @@ function CountryForm() {
             className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-400 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
-            <option value="Sri Lanka"> Sri Lanka</option>
-            <option value="India"> India</option>
-            <option value="China"> china</option>
-            <option value="Dubai"> Dubai</option>
-            <option value="Maldives"> Maldives</option>
+            
+              <option value="Sri Lanka"> Sri Lanka</option>
+              <option value="India"> India</option>
+              <option value="China"> china</option>
+              <option value="Dubai"> Dubai</option>
+              <option value="Maldives"> Maldives</option>
+            
           </select>
         </div>
         <div>
           <label htmlFor="destinationCountry" className="block text-gray-700 font-bold text-left">
-            Destination Country:
+            Destination Country: 
           </label>
           <select
             id="destinationCountry"
