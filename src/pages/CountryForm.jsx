@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
+import axios from 'axios';
+
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
@@ -10,20 +12,27 @@ function CountryForm() {
   const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
-    readGoogleSheet();
+    fetchData();
   }, []);
 
-  const readGoogleSheet = () => {
-    fetch('https://sheetdb.io/api/v1/wz3shc7d358q9')
-      .then((response) => response.json())
-      .then((data) => {
-        const countries = data.map((item) => item.country);
-        setCountryList(countries);
-      })
-      .catch((error) => {
-        console.log('Error reading Google Sheet:', error);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/from_srilanka_records', {
+        params: {
+          database: 'googlesheetsdb',
+          collection: 'from_srilanka_records',
+        },
       });
+  
+      const fetchedCountryList = response.data.map((record) => record.Country);
+      setCountryList(fetchedCountryList);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
+  
+  
+
 
   const handleOnClose = () => setShowMyModal(false);
 
@@ -59,7 +68,7 @@ function CountryForm() {
   };
 
   return (
-    <div className="p-4 flex items-center justify-center space-y-4  w-full sm:w-96 pl-2 bg-cover bg-center w-683 h-819 bg-gray-200 rounded-[32px]">
+    <div className="p-4 flex items-center justify-center space-y-4 w-full sm:w-96 pl-2 bg-cover bg-center w-683 h-819 bg-gray-200 rounded-[32px]">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="originCountry" className="block text-gray-700 font-bold text-left">
@@ -72,18 +81,16 @@ function CountryForm() {
             className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-400 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
-            
-              <option value="Sri Lanka"> Sri Lanka</option>
-              <option value="India"> India</option>
-              <option value="China"> china</option>
-              <option value="Dubai"> Dubai</option>
-              <option value="Maldives"> Maldives</option>
-            
+            <option value="Sri Lanka"> Sri Lanka</option>
+            <option value="India"> India</option>
+            <option value="China"> china</option>
+            <option value="Dubai"> Dubai</option>
+            <option value="Maldives"> Maldives</option>
           </select>
         </div>
         <div>
           <label htmlFor="destinationCountry" className="block text-gray-700 font-bold text-left">
-            Destination Country: 
+            Destination Country:
           </label>
           <select
             id="destinationCountry"
@@ -94,8 +101,8 @@ function CountryForm() {
             <option value="">Select Country</option>
             {originCountry === 'Sri Lanka' ? (
               countryList.map((country) => (
-                <option key={country} value={country}>
-                  {country}
+                <option key={country._id} value={country.country}>
+                  {country.country}
                 </option>
               ))
             ) : (
@@ -154,7 +161,7 @@ function CountryForm() {
         <button
           onClick={() => setShowMyModal(true)}
           type="submit"
-          className="bg-lime-300 text-black m-8 px-4 py-2  hover:bg-blue-600 rounded-lg font-bold"
+          className="bg-lime-300 text-black m-8 px-4 py-2 hover:bg-blue-600 rounded-lg font-bold"
         >
           Calculate
         </button>
