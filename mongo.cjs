@@ -9,8 +9,10 @@ const connectionParams = {
 
 //array to store the countries
 const countriesList = [];
+
 //array to store all export data
 const exportDataList = [];
+
 
 mongoose.connect(dbUrl, connectionParams)
   .then(() => {
@@ -21,7 +23,7 @@ mongoose.connect(dbUrl, connectionParams)
   });
 
 app.listen(3000, () => {
-  console.log("listening");
+  console.log("'Server is running on port 3000'");
 });
 
 const fromSriLankaRecordsSchema = new mongoose.Schema(
@@ -61,8 +63,8 @@ app.get("/read", (req, res) => {
       // Add the retrieved data to the jsonDataList array
       exportDataList.push(...data);
 
-      console.log(exportDataList)
-      console.log(countriesList)
+      //console.log(exportDataList)
+      //console.log(countriesList)
       return res.status(200).send(data);
       
     })

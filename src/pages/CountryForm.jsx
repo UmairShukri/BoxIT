@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
-import axios from 'axios';
-
+import { countriesList } from '../../mongo.cjs'; 
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
@@ -9,29 +8,11 @@ function CountryForm() {
   const [weight, setWeight] = useState('');
   const [selectedShippingMethod, setSelectedShippingMethod] = useState('');
   const [showMyModal, setShowMyModal] = useState(false);
-  const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/from_srilanka_records', {
-        params: {
-          database: 'googlesheetsdb',
-          collection: 'from_srilanka_records',
-        },
-      });
-  
-      const fetchedCountryList = response.data.map((record) => record.Country);
-      setCountryList(fetchedCountryList);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-  
-  
 
 
   const handleOnClose = () => setShowMyModal(false);
@@ -81,34 +62,42 @@ function CountryForm() {
             className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-400 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
           >
             <option value="">Select Country</option>
-            <option value="Sri Lanka"> Sri Lanka</option>
-            <option value="India"> India</option>
-            <option value="China"> china</option>
-            <option value="Dubai"> Dubai</option>
-            <option value="Maldives"> Maldives</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="India">India</option>
+            <option value="China">China</option>
+            <option value="Dubai">Dubai</option>
+            <option value="Maldives">Maldives</option>
           </select>
         </div>
         <div>
           <label htmlFor="destinationCountry" className="block text-gray-700 font-bold text-left">
             Destination Country:
           </label>
-          <select
-            id="destinationCountry"
-            value={destinationCountry}
-            onChange={handleDestinationCountryChange}
-            className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-          >
-            <option value="">Select Country</option>
-            {originCountry === 'Sri Lanka' ? (
-              countryList.map((country) => (
-                <option key={country._id} value={country.country}>
-                  {country.country}
+          {originCountry === 'Sri Lanka' ? ( // Render options based on originCountry value
+            <select
+              id="destinationCountry"
+              value={destinationCountry}
+              onChange={handleDestinationCountryChange}
+              className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            >
+              <option value="">Select Country</option>
+              {countriesList.map((country) => (
+                <option key={country} value={country}>
+                  {country}
                 </option>
-              ))
-            ) : (
+              ))}
+            </select>
+          ) : (
+            <select
+              id="destinationCountry"
+              value={destinationCountry}
+              onChange={handleDestinationCountryChange}
+              className="px-8 w-30px bg-gray-600 text-white block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            >
+              <option value="">Select Country</option>
               <option value="Sri Lanka">Sri Lanka</option>
-            )}
-          </select>
+            </select>
+          )}
         </div>
         <div>
           <label htmlFor="weight" className="block text-gray-700 font-bold text-left">
@@ -172,5 +161,4 @@ function CountryForm() {
     </div>
   );
 }
-
 export default CountryForm;
