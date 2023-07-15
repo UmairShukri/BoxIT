@@ -7,6 +7,11 @@ const connectionParams = {
   useUnifiedTopology: true,
 };
 
+//array to store the countries
+const countriesList = [];
+//array to store all export data
+const exportDataList = [];
+
 mongoose.connect(dbUrl, connectionParams)
   .then(() => {
     console.info("connected");
@@ -26,6 +31,18 @@ const fromSriLankaRecordsSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    firstKg: {
+      type: Number,
+      required: true,
+    },
+    additionalKg: {
+      type: Number,
+      required: true,
+    },
+    tenKg: {
+      type: Number,
+      required: true,
+    },
   }
 );
 
@@ -35,10 +52,29 @@ module.exports = FromSriLankaRecordsModel;
 app.get("/read", (req, res) => {
   FromSriLankaRecordsModel.find()
     .then((data) => {
+      // Extract the countries from the retrieved data
+      const countries = data.map((record) => record.country);
+      
+      // Update the countriesList array with the extracted countries
+      countriesList.push(...countries);
+
+      // Add the retrieved data to the jsonDataList array
+      exportDataList.push(...data);
+
+      console.log(exportDataList)
+      console.log(countriesList)
       return res.status(200).send(data);
+      
     })
     .catch((err) => {
       console.error("Error reading data from MongoDB:", err);
       return res.status(500).send("Internal Server Error");
     });
 });
+
+// Export the countriesList array and export data
+module.exports = {
+  countriesList,
+  exportDataList,
+};
+
