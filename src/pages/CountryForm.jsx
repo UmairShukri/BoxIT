@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
-import { countriesList } from '../../mongo.cjs'; 
+import { CountriesList } from '../../mongo.cjs'; 
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
@@ -8,11 +8,14 @@ function CountryForm() {
   const [weight, setWeight] = useState('');
   const [selectedShippingMethod, setSelectedShippingMethod] = useState('');
   const [showMyModal, setShowMyModal] = useState(false);
+  const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
     fetchData();
+
   }, []);
 
+  setCountryList(CountriesList);
 
 
   const handleOnClose = () => setShowMyModal(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import CountryForm from './Countryform';
+import CountryForm from './CountryForm';
 import bgImage from '../images/bg.jpg';
 import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from '../components/Navbar';
