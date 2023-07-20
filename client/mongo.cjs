@@ -8,7 +8,7 @@ const connectionParams = {
 };
 
 //array to store the countries
-const countriesList = [];
+const CountriesList = [];
 
 //array to store all export data
 const exportDataList = [];
@@ -58,7 +58,7 @@ app.get("/read", (req, res) => {
       const countries = data.map((record) => record.country);
       
       // Update the countriesList array with the extracted countries
-      countriesList.push(...countries);
+      CountriesList.push(...countries);
 
       // Add the retrieved data to the jsonDataList array
       exportDataList.push(...data);
@@ -76,7 +76,7 @@ app.get("/read", (req, res) => {
 
 // Export the countriesList array and export data
 module.exports = {
-  countriesList,
+  CountriesList,
   exportDataList,
 };
 
