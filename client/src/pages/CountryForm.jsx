@@ -11,6 +11,7 @@ function CountryForm() {
   const [countriesList, setCountriesList] = useState([]);
   const [exportDataList, setExportDataList] = useState([]);
   const [shippingPrice, setShippingPrice] = useState(null);
+  const [importcountriesList, setImportCountriesList] = useState([]);
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
@@ -25,7 +26,11 @@ function CountryForm() {
 
         // Update the exportDataList state with the retrieved data
         setExportDataList(data);
-      })
+      });
+      axios.get('http://localhost:3001/imports').then((response) => {
+      const importCountries = response.data.map((record) => record.country);
+      setImportCountriesList(importCountries);
+    })
       .catch((error) => {
         console.error('Error fetching data from server:', error);
       });
@@ -110,10 +115,11 @@ function CountryForm() {
           >
             <option value="">Select Country</option>
             <option value="Sri Lanka">Sri Lanka</option>
-            <option value="India">India</option>
-            <option value="China">China</option>
-            <option value="Dubai">Dubai</option>
-            <option value="Maldives">Maldives</option>
+            {importcountriesList.map((country) => ( // Use importcountriesList for origin countries
+              <option key={country} value={country}>
+                {country}
+              </option>
+            ))}
           </select>
         </div>
         <div>
