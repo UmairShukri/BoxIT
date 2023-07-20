@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Price from '../components/Price';
-import axios from 'axios'; 
-
+import axios from 'axios';
 
 function CountryForm() {
   const [originCountry, setOriginCountry] = useState('');
@@ -13,10 +12,10 @@ function CountryForm() {
   const [exportDataList, setExportDataList] = useState([]);
   const [shippingPrice, setShippingPrice] = useState(null);
 
-
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('http://localhost:3001/read')
+    axios
+      .get('http://localhost:3001/read')
       .then((response) => {
         const data = response.data;
         const countries = data.map((record) => record.country);
@@ -28,10 +27,9 @@ function CountryForm() {
         setExportDataList(data);
       })
       .catch((error) => {
-        console.error("Error fetching data from server:", error);
+        console.error('Error fetching data from server:', error);
       });
   }, []);
-
 
   const handleOnClose = () => setShowMyModal(false);
 
@@ -65,37 +63,36 @@ function CountryForm() {
     console.log('Weight:', weight);
     console.log('Shipping Method:', selectedShippingMethod);
 
-
     // Find the selected country data from exportDataList
-  const selectedCountryData = exportDataList.find((record) => record.country === destinationCountry);
+    const selectedCountryData = exportDataList.find((record) => record.country === destinationCountry);
 
-  if (!selectedCountryData) {
-    console.error("Destination country data not found.");
-    return;
-  }
+    if (!selectedCountryData) {
+      console.error('Destination country data not found.');
+      return;
+    }
 
-  // Get the weight value in kg
-  const weightInKg = parseFloat(weight);
+    // Get the weight value in kg
+    const weightInKg = parseFloat(weight);
 
-  if (isNaN(weightInKg) || weightInKg <= 0) {
-    console.error("Invalid weight value.");
-    return;
-  }
+    if (isNaN(weightInKg) || weightInKg <= 0) {
+      console.error('Invalid weight value.');
+      return;
+    }
 
-  // Calculate the shipping price
-  let shippingPrice;
-  if (weightInKg < 10) {
-    shippingPrice = selectedCountryData.firstKg + (weightInKg - 1) * selectedCountryData.additionalKg;
-  } else {
-    shippingPrice = selectedCountryData.firstKg + 9 * selectedCountryData.additionalKg + (weightInKg - 10) * selectedCountryData.tenKg;
-  }
-  setShippingPrice(shippingPrice); // Set the shippingPrice in the state
+    // Calculate the shipping price
+    let shippingPrice;
+    if (weightInKg < 10) {
+      shippingPrice = selectedCountryData.firstKg + (weightInKg - 1) * selectedCountryData.additionalKg;
+    } else {
+      shippingPrice = selectedCountryData.firstKg + 9 * selectedCountryData.additionalKg + (weightInKg - 10) * selectedCountryData.tenKg;
+    }
+    setShippingPrice(shippingPrice); // Set the shippingPrice in the state
 
-  console.log('Origin Country:', originCountry);
-  console.log('Destination Country:', destinationCountry);
-  console.log('Weight:', weightInKg);
-  console.log('Shipping Method:', selectedShippingMethod);
-  console.log('Shipping Price:', shippingPrice);
+    console.log('Origin Country:', originCountry);
+    console.log('Destination Country:', destinationCountry);
+    console.log('Weight:', weightInKg);
+    console.log('Shipping Method:', selectedShippingMethod);
+    console.log('Shipping Price:', shippingPrice);
   };
 
   return (
@@ -123,7 +120,8 @@ function CountryForm() {
           <label htmlFor="destinationCountry" className="block text-gray-700 font-bold text-left">
             Destination Country:
           </label>
-          {originCountry === 'Sri Lanka' ? ( // Render options based on originCountry value
+          {originCountry === 'Sri Lanka' ? (
+            // Render options based on originCountry value
             <select
               id="destinationCountry"
               value={destinationCountry}
@@ -205,11 +203,11 @@ function CountryForm() {
           Calculate
         </button>
         <div>
-          <Price onClose={handleOnClose} visible={showMyModal} />
+          <Price onClose={handleOnClose} visible={showMyModal} shippingPrice={shippingPrice} />
         </div>
       </form>
     </div>
   );
 }
-export default CountryForm;
 
+export default CountryForm;
