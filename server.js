@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 
+//the should be two links for the export and in=mport shipping data 
+
 const dbUrl = "mongodb+srv://shobi:MERNapp2023@mernapp.clnurpr.mongodb.net/googlesheetsdb?retryWrites=true&w=majority";
 const connectionParams = {
   useNewUrlParser: true,
