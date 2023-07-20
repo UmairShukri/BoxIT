@@ -11,6 +11,7 @@ function CountryForm() {
   const [showMyModal, setShowMyModal] = useState(false);
   const [countriesList, setCountriesList] = useState([]);
   const [exportDataList, setExportDataList] = useState([]);
+  const [shippingPrice, setShippingPrice] = useState(null);
 
 
   useEffect(() => {
@@ -63,6 +64,38 @@ function CountryForm() {
     console.log('Destination Country:', destinationCountry);
     console.log('Weight:', weight);
     console.log('Shipping Method:', selectedShippingMethod);
+
+
+    // Find the selected country data from exportDataList
+  const selectedCountryData = exportDataList.find((record) => record.country === destinationCountry);
+
+  if (!selectedCountryData) {
+    console.error("Destination country data not found.");
+    return;
+  }
+
+  // Get the weight value in kg
+  const weightInKg = parseFloat(weight);
+
+  if (isNaN(weightInKg) || weightInKg <= 0) {
+    console.error("Invalid weight value.");
+    return;
+  }
+
+  // Calculate the shipping price
+  let shippingPrice;
+  if (weightInKg < 10) {
+    shippingPrice = selectedCountryData.firstKg + (weightInKg - 1) * selectedCountryData.additionalKg;
+  } else {
+    shippingPrice = selectedCountryData.firstKg + 9 * selectedCountryData.additionalKg + (weightInKg - 10) * selectedCountryData.tenKg;
+  }
+  setShippingPrice(shippingPrice); // Set the shippingPrice in the state
+
+  console.log('Origin Country:', originCountry);
+  console.log('Destination Country:', destinationCountry);
+  console.log('Weight:', weightInKg);
+  console.log('Shipping Method:', selectedShippingMethod);
+  console.log('Shipping Price:', shippingPrice);
   };
 
   return (
@@ -179,3 +212,4 @@ function CountryForm() {
   );
 }
 export default CountryForm;
+
