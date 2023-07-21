@@ -17,7 +17,7 @@ const BackgroundSlider = () => {
   }, []);
 
   return (
-    <div className="relative h-full  w-100 mx-4 sm:mx-8 lg:mx-16  ">
+    <div className="relative h-full  w-100 mx-4 sm:mx-8 lg:mx-20  ">
       {slides.map((slide, index) => (
         <img
           key={index}

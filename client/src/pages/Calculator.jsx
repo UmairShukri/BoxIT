@@ -11,10 +11,10 @@ const Calculator = () => {
   return (
     <div className=" relative flex flex-col ">
       
-      <div className="relative text-lime-300 w-full ">
+      <div className="relative text-lime-300 ">
       <Navbar />
       </div>
-      <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-8">
+      <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-10">
         <div className="absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
@@ -28,7 +28,7 @@ const Calculator = () => {
         </div>
       </div>
 
-      <div className="justify-center m-8 text-center">
+      <div className="justify-center m-5 text-center">
         <h2 className="text-2xl font-bold">Why BOXit</h2>
         
         <p2 className="text-l font-serif ">
