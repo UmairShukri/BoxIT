@@ -178,40 +178,7 @@ function CountryForm() {
           />
         </div>
         <div>
-          <label className="block text-gray-700 text-left font-bold">Shipping Method:</label>
-          <div>
-            <label htmlFor="air" className="inline-flex items-center mr-2 font-bold text-left">
-              <input
-                type="radio"
-                id="air"
-                value="air"
-                checked={selectedShippingMethod === 'air'}
-                onChange={handleShippingMethodChange}
-              />
-              <span className="ml-2">Air</span>
-            </label>
-            <label htmlFor="sea" className="inline-flex items-center mr-2 font-bold">
-              <input
-                type="radio"
-                id="sea"
-                value="sea"
-                checked={selectedShippingMethod === 'sea'}
-                onChange={handleShippingMethodChange}
-              />
-              <span className="ml-2">Sea</span>
-            </label>
-
-            <label htmlFor="express" className="inline-flex items-center mr-2 font-bold">
-              <input
-                type="radio"
-                id="express"
-                value="express"
-                checked={selectedShippingMethod === 'express'}
-                onChange={handleShippingMethodChange}
-              />
-              <span className="ml-2">Express</span>
-            </label>
-          </div>
+          
         </div>
         <button
           onClick={() => setShowMyModal(true)}
