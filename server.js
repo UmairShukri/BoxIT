@@ -54,6 +54,27 @@ const fromSriLankaRecordsSchema = mongoose.Schema(
     }
 );
 
+const importRecordsSchema = mongoose.Schema(
+  {
+    country: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    firstKg: {
+      type: Number,
+      required: true,
+    },
+    additionalKg: {
+      type: Number,
+      required: true,
+    },
+    tenKg: {
+      type: Number,
+      required: true,
+    },
+  }
+);
 
 
 
@@ -67,6 +88,7 @@ app.listen(port,() => {
 
 const FromSriLankaRecordsModel = mongoose.model("from_srilanka_records", fromSriLankaRecordsSchema);
 //module.exports = FromSriLankaRecordsModel;
+
 
 app.get("/read", (req, res) => {
   FromSriLankaRecordsModel.find()
@@ -89,15 +111,55 @@ app.get("/read", (req, res) => {
       console.error("Error reading data from MongoDB:", err);
       return res.status(500).send("Internal Server Error");
     });
-  console.log(exportDataList)
-  console.log(countriesList)
+  //console.log(exportDataList)
+  //console.log(countriesList)
 });
 
+
+
+
+//array to store the countries
+const importcountriesList = [];
+
+//array to store all export data
+const importDataList = [];
+
+const ImportRecordsModel = mongoose.model("import_records", importRecordsSchema);
+//module.exports = FromSriLankaRecordsModel;
+
+
+app.get("/imports", (req, res) => {
+  ImportRecordsModel.find()
+    .then((data) => {
+      // Extract the countries from the retrieved data
+      const countries1 = data.map((record) => record.country);
+      
+      // Update the countriesList array with the extracted countries
+      importcountriesList.push(...countries1);
+
+      // Add the retrieved data to the jsonDataList array
+      importDataList.push(...data);
+
+      //console.log(exportDataList)
+      //console.log(countriesList)
+      return res.status(200).send(data);
+      
+    })
+    .catch((err) => {
+      console.error("Error reading data from MongoDB:", err);
+      return res.status(500).send("Internal Server Error");
+    });
+  //console.log(importDataList)
+  //console.log(importcountriesList)
+});
 
 
 module.exports = {
   countriesList,
   exportDataList,
-  FromSriLankaRecordsModel
+  FromSriLankaRecordsModel,
+  importcountriesList,
+  importDataList,
+  importRecordsSchema
 };
 
