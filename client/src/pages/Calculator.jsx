@@ -9,10 +9,11 @@ import '../components/Price.css'
 
 const Calculator = () => {
   return (
+    <><Navbar />
     <div className=" relative flex flex-col ">
       
       <div className="relative text-lime-300 ">
-      <Navbar />
+      
       </div>
       <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-10">
         <div className="absolute inset-0 z-0">
@@ -69,6 +70,7 @@ const Calculator = () => {
       <div > <Footer/> </div>
       
     </div>
+    </>
   );
 };
 
