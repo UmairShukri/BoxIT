@@ -39,7 +39,8 @@ function Contact() {
 
   return (
     <>
-      <Navbar />
+    <div className='w-screen'> <Navbar /></div>
+      
       <div className="container my-24 px-6 mx-auto ">
         <section className="mb-32 text-gray-800 text-center">
           <div className="px-6 py-12 md:px-12">
