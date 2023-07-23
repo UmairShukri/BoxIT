@@ -29,7 +29,7 @@ const Navbar = () => {
     // </nav>
 
     <nav className="bg-zinc-900 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-      <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-5">
+      <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen p-5">
         <div className="flex items-center">
           <a href="https://boxit.com" className="flex items-center">
             <img src={Icon} className="mr-3 h-6 sm:h-9" alt="Boxit Logo" />
