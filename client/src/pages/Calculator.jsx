@@ -6,10 +6,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 import Flags from "../components/FlagContainer"
 import '../components/Price.css'
+import Testimonials from "../components/Testimonials.jsx"
 
 const Calculator = () => {
-  return (
-    <><Navbar />
+  return <>
+    <Navbar />
     <div className=" relative flex flex-col ">
       
       <div className="relative text-lime-300 ">
@@ -32,7 +33,7 @@ const Calculator = () => {
       <div className="justify-center m-5 text-center">
         <h2 className="text-2xl font-bold">Why BOXit</h2>
         
-        <p2 className="text-l font-serif ">
+        <p2 className="text-l ">
           Competitive pricing options and transparent fee structure. <br />
           Simplify your shipping process with BOXit's user-friendly platform and seamless. <br />
           Experience top-notch customer service with BOXit, ensuring prompt assistance and efficient issue resolution. <br />
@@ -48,7 +49,7 @@ const Calculator = () => {
           <CountryForm />
         </div>
         <div className="flex flex-col items-center">
-          <h3 className="text-xl font-semibold font-mono">We will help you to shop around the world.</h3>
+          <h3 className="text-xl font-semibold ">We will help you to shop around the world.</h3>
           <button
             type="button"
             className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold"
@@ -66,12 +67,14 @@ const Calculator = () => {
         
       </div>
       <div className='flex justify-center '> <Flags/></div>
+
+      <div><Testimonials/></div>
     
       <div > <Footer/> </div>
       
     </div>
     </>
-  );
+
 };
 
 export default Calculator;

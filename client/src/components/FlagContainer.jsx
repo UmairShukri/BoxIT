@@ -9,6 +9,7 @@ export default function FlagContainer() {
     <div className='border-4 bg-gray-200 rounded-2xl flex flex-col p-6 m-5'>
       <h1 className='text-center font-bold'>Countries we Export to</h1>
       <div className='flex flex-wrap justify-center items-center space-x-4 space-y-4'>
+
         <div className='flex flex-col items-center text-center'>
           <img className='max-w-xs' src={India} alt='india' />
           <span className='font-bold text-sm'>INDIA</span>
@@ -16,7 +17,7 @@ export default function FlagContainer() {
 
         <div className='flex flex-col items-center text-center'>
           <img className='max-w-xs' src={China} alt='china' />
-          <span className='font-bold text-sm pt-8'>CHINA</span>
+          <span className='font-bold text-sm'>CHINA</span>
         </div>
 
         <div className='flex flex-col items-center text-center'>
