@@ -17,7 +17,7 @@ const Calculator = () => {
       <div className="relative text-lime-300 ">
       
       </div>
-      <div className=" fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-10">
+      <div className=" w-8/12 fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-10 ">
         <div className="absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
