@@ -18,10 +18,10 @@ const Calculator = () => {
       
       </div>
       <div className=" w-8/12 fixed top-0 left-0 z-50 boxit relative flex items-center justify-center m-10 ">
-        <div className="absolute inset-0 z-0">
+        <div className="ml-96 -mr-32 absolute inset-0 z-0">
           <BackgroundSlider />
         </div>
-        <div className="relative z-10 p-10">
+        <div className="relative z-10 p-10 ml-72">
           <h1 className="font-extrabold text-3xl pb-4 pt-10 text-white">
             All relationships begin with trust.
           </h1>
