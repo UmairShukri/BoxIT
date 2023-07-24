@@ -167,7 +167,7 @@ function CountryForm() {
         </div>
         <div>
           <label htmlFor="weight" className="block text-gray-700 font-bold text-left">
-            Weight:
+            Weight In Kg:
           </label>
           <input
             type="number"
