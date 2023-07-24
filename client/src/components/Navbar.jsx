@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../images/boxitLogo.png';
+import "flowbite";
 
 const Navbar = () => {
   return (
