@@ -10,7 +10,7 @@ import Testimonials from "../components/Testimonials.jsx"
 
 const Calculator = () => {
   return <>
-  <div className='w-screen'> <Navbar /> </div>
+  <div className='w-screen'> <Navbar/> </div>
    
     <div className=" relative flex flex-col ">
       
@@ -53,15 +53,23 @@ const Calculator = () => {
           <h3 className="text-xl font-semibold ">We will help you to shop around the world.</h3>
           <button
             type="button"
-            className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold"
+            className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-full font-bold"
+            onClick={() => {
+              // Redirect to the desired link when the button is clicked
+              window.location.href = 'https://sixtysix.lk/boxit/tracking.php';
+            }}
           >
-            Shopping Request
+            Request Quote
           </button>
           <button
             type="button"
-            className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-lg font-bold"
+            className="bg-lime-300 text-black m-8 px-4 py-2 rounded-md hover:bg-blue-600 rounded-full font-bold"
+            onClick={() => {
+              // Redirect to the desired link when the button is clicked
+              window.location.href = 'https://sixtysix.lk/boxit/tracking.php';
+            }}
           >
-            Portal Login
+            Track Order
           </button>
           
         </div>
