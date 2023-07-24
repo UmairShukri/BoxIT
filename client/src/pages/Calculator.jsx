@@ -10,7 +10,8 @@ import Testimonials from "../components/Testimonials.jsx"
 
 const Calculator = () => {
   return <>
-    <Navbar />
+  <div className='w-screen'> <Navbar /> </div>
+   
     <div className=" relative flex flex-col ">
       
       <div className="relative text-lime-300 ">
