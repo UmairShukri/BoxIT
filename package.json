@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "npm run vite --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "vite build"
+    "build": "cd client && vite build"
   },
   "keywords": [],
   "author": "",

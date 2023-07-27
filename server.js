@@ -156,8 +156,8 @@ app.get("/imports", (req, res) => {
 const emailConfig = {
   service: 'Gmail',
   auth: {
-    user: 'boxitwebsitecontact@gmail.com',
-    pass: 'tenzoujjksjhhrbg',
+    user: 'infinitytechsolutionspvt@gmail.com',
+    pass: 'glgkvmspiyimjics',
   },
 };
 
@@ -170,7 +170,7 @@ app.post('/api/contact', (req, res) => {
   const mailOptions = {
     from: email ,
     replyTo: email,
-    to: 'boxitwebsitecontact@gmail.com',
+    to: 'infinitytechsolutionspvt@gmail.com',
     subject: 'New Contact Form Submission',
     text: `
       Name: ${name}
