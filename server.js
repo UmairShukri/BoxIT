@@ -1,3 +1,4 @@
+require ("dotenv")
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require('cors');
@@ -156,8 +157,8 @@ app.get("/imports", (req, res) => {
 const emailConfig = {
   service: 'Gmail',
   auth: {
-    user: 'infinitytechsolutionspvt@gmail.com',
-    pass: 'glgkvmspiyimjics',
+    user: 'boxitwebsitecontact@gmail.com',
+    pass: 'wobgsvnnijeuossy',
   },
 };
 
