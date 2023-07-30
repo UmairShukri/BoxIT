@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Pic from '../images/picOne.jpeg';
+import Pic from '../images/picOne.png';
 import PicTwo from '../images/picTwo.jpg';
 // import "../About.css"
 
@@ -9,10 +9,12 @@ function About() {
     <>
       <Navbar />
       <section class="relative container mx-auto px-4 md:container md:mx-auto space-y-9 font-serif">
-        <div class="flex justify-center m-9 ml-60 mr-60">
+        <div class="flex  m-9 ">
           <div class="max-w-2/3">
-            <h1> </h1>
-            <p className='mt-6 '>
+            <h1 className='font-bold justify-center'> ABOUT US </h1>
+
+            <p className='flex justify-start mt-6  w-80 ml-20 '>
+
               Welcome to Sixty Six Lanka (Pvt) Ltd, Sri Lanka! Formed in May
               2018 by five seasoned professionals with over 70 years of
               combined business and professional experience, we aimed to
@@ -22,11 +24,11 @@ function About() {
               a seamless end-to-end experience.
             </p>
           </div>
-          <img src={Pic} className="h-60 ml-8" alt="Boxit Logo" />
+          <img src={Pic} className="h-60 ml-8 mr-70" alt="Boxit Logo" />
         </div>
 
         <div class="flex justify-center m-9 ml-60 mr-60">
-          <img src={PicTwo} className="h-60 mr-8" alt="Boxit Logo" />
+          <img src={Pic} className="h-60 mr-8" alt="Boxit Logo" />
           <div class="max-w-2/3">
             <h1> </h1>
             <p className='mt-5'>
