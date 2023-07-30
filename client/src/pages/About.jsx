@@ -10,8 +10,8 @@ function About() {
       <Navbar />
       <section class="relative container mx-auto px-4 md:container md:mx-auto space-y-9 font-serif">
         <div class="flex  m-9 ">
-          <div class="max-w-2/3">
-            <h1 className='font-bold justify-center'> ABOUT US </h1>
+          <div class="ml-60">
+            <h1 className='font-bold  flex justify-center'> ABOUT US </h1>
 
             <p className='flex justify-start mt-6  w-80 ml-20 '>
 
@@ -24,14 +24,14 @@ function About() {
               a seamless end-to-end experience.
             </p>
           </div>
-          <img src={Pic} className="h-60 ml-8 mr-70" alt="Boxit Logo" />
+          <img src={Pic} className="h-60 ml-20 mt-20 mr-70" alt="Boxit Logo" />
         </div>
 
         <div class="flex justify-center m-9 ml-60 mr-60">
-          <img src={Pic} className="h-60 mr-8" alt="Boxit Logo" />
+          <img src={Pic} className="h-60 mr-8 ml-20" alt="Boxit Logo" />
           <div class="max-w-2/3">
-            <h1> </h1>
-            <p className='mt-5'>
+            <h1 className='font-bold  flex justify-center '>  WHAT HAVE WE DONE? </h1>
+            <p className='mt-5 mr-20'>
               In 2020, during the pandemic, we focused on supporting Maldivian
               buyers by shipping essential and medical products from Sri Lanka
               to the Maldives. As the lockdown eased and services resumed, we
