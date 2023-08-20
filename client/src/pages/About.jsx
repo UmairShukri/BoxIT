@@ -9,10 +9,10 @@ function About() {
       <Navbar />
       <section className="relative container mx-auto px-4 md:container md:mx-auto space-y-9 font-serif">
       
-        <div className="flex m-9 ">
-          <div className="ml-60">
+        <div className="flex flex-col-reverse md:flex-row m-9 ">
+          <div className="md:ml-60 md:mr-20">
             <h1 className="font-bold flex justify-center">ABOUT US</h1>
-            <p className="flex justify-start mt-6 w-80 ml-20">
+            <p className="mt-6 md:mt-0">
               Welcome to Sixty Six Lanka (Pvt) Ltd, Sri Lanka! Formed in May
               2018 by five seasoned professionals with over 70 years of
               combined business and professional experience, we aimed to
@@ -22,15 +22,15 @@ function About() {
               a seamless end-to-end experience.
             </p>
           </div>
-          <img src={Pic} className="h-60 ml-20 mt-20 mr-70" alt="Boxit Logo" />
+          <img src={Pic} className="h-60 md:h-auto ml-20 mt-20 md:mt-0" alt="Boxit Logo" />
         </div>
 
         {/* Second Paragraph */}
-        <div className="flex justify-center m-9 ml-60 mr-60 p-2">
-          <img src={Pic} className="h-60 mr-8 ml-20" alt="Boxit Logo" />
+        <div className="flex flex-col-reverse md:flex-row justify-center m-9 ml-60 mr-60 p-2">
+          <img src={Pic} className="h-60 md:h-auto mr-8 ml-20" alt="Boxit Logo" />
           <div className="max-w-2/3">
             <h1 className="font-bold flex justify-start">WHAT HAVE WE DONE?</h1>
-            <p className="mt-5 mr-60">
+            <p className="mt-5 md:mt-0">
               In 2020, during the pandemic, we focused on supporting Maldivian
               buyers by shipping essential and medical products from Sri Lanka
               to the Maldives. As the lockdown eased and services resumed, we
@@ -42,8 +42,8 @@ function About() {
         </div>
 
         {/* Third Paragraph */}
-        <div className="flex justify-center m-9 ml-60 mr-80 flex flex-col md:flex-row p-4"> {/* flex-col on small screens, and flex-row on medium and larger screens */}
-          <div className="max-w-2/3 md:w-1/2"> {/* Set the width to half of the parent container on medium and larger screens */}
+        <div className="flex flex-col-reverse md:flex-row justify-center m-9 ml-60 mr-80 p-4">
+          <div className="max-w-2/3 md:w-1/2">
             <h1 className="font-bold">WHO ARE WE</h1>
             <p>
               Initially, an exclusive franchisee of the largest courier company
@@ -54,16 +54,15 @@ function About() {
             </p>
           </div>
           <div className="image3 md:w-1/2 flex justify-end mt-4 md:mt-0">
-            <img src={Pic} className="h-60 ml-10 md:ml-0" alt="Boxit Logo" /> {/* Adjust margins based on screen size */}
+            <img src={Pic} className="h-60 md:h-auto ml-10 md:ml-0" alt="Boxit Logo" />
           </div>
         </div>
 
         {/* Fourth Paragraph */}
-        <div className="flex justify-center m-9 mr-60 ml-60">
-        <img src={Pic} className="h-60 ml-10 md:ml-0" alt="Boxit Logo" />
-          <div className="max-w-2/3 ml-60">
-         
-            <h1 className="font-bold">TITLE HERE</h1> {/* Add a title for the fourth paragraph */}
+        <div className="flex flex-col-reverse md:flex-row justify-center m-9 ml-60 mr-60">
+          <img src={Pic} className="h-60 md:h-auto ml-10 md:ml-0" alt="Boxit Logo" />
+          <div className="max-w-2/3 md:ml-60">
+            <h1 className="font-bold">TITLE HERE</h1>
             <p>
               At Boxit, we commit to offering the best market rates for
               imports and exports. With a dedicated team ensuring efficient
